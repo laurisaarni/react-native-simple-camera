@@ -1,0 +1,52 @@
+{
+  "extends": ["airbnb"],
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true,
+    "es6": true,
+    "mocha": true,
+    "jest": true
+  },
+  "plugins": [
+    "react", "react-native"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true,
+      "experimentalObjectRestSpread": true,
+      "modules": true
+    }
+  },
+  "settings": {
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "moduleDirectory": ["node_modules", "src"]
+    },
+    "import/ignore": ["\\.scss$", "node_modules", "\\.json$"],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".android.js", "ios.js"]
+      }
+    }
+  },
+  "rules": {
+    "arrow-body-style": "off",
+    "react/no-did-mount-set-state": "off",
+    "react/prop-types": "off",
+    "react/no-string-refs": "off",
+    "react/sort-comp": "off",
+    "react/require-default-props": "off",
+    "react/forbid-prop-types": "off",
+    "react/jsx-no-bind": "off",
+    "prefer-const": 2,
+    "quotes": [2, "single", "avoid-escape"],
+    "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx"] }],
+    "semi": ["error", "never"],
+    "max-len": ["error", 120],
+    "no-underscore-dangle": "off",
+    "no-console": "off",
+    "no-plusplus": "off",
+    "no-return-assign": "off"
+  }
+}
