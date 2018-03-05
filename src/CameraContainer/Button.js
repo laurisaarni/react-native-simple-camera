@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     paddingTop: 5,
     paddingBottom: 5,
     paddingLeft: 5,
-    paddingRight:5,
+    paddingRight: 5,
     borderWidth: 1,
     borderColor: '#dddddd',
     borderRadius: 26,
@@ -32,7 +32,8 @@ const icons = {
 const Button = ({ onPressButton, icon }) => (
   <TouchableOpacity
     onPress={onPressButton}
-    style={styles.button}>
+    style={styles.button}
+  >
     <Image style={styles.icon} source={icons[icon]} />
   </TouchableOpacity>
 )
