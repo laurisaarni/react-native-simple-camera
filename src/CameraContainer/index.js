@@ -1,15 +1,31 @@
 import React, { Component } from 'react'
 import {
   Alert,
-  Dimensions,
-  Image,
-  StyleSheet,
-  TouchableOpacity,
   View,
+  StyleSheet,
 } from 'react-native'
-import Camera from 'react-native-camera'
+import Spinner from 'react-native-loading-spinner-overlay'
 import CameraWrapper from './CameraWrapper'
 import Button from './Button'
+
+const styles = StyleSheet.create({
+  icon: {
+    fontSize: 33,
+  },
+  button: {
+    backgroundColor: 'white',
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 5,
+    paddingRight: 5,
+    borderWidth: 1,
+    borderColor: '#dddddd',
+    borderRadius: 21,
+    width: 42,
+    height: 42,
+    alignItems: 'center',
+  },
+})
 
 export default class CameraContainer extends Component {
   constructor(props) {
@@ -22,22 +38,19 @@ export default class CameraContainer extends Component {
 
     this.state = {
       viewCamera: false,
-      preview: null,
-      code: null,
       mode: this.props.mode,
+      spinnerVisible: false,
     }
   }
   onBarCodeRead(barcodeData) {
     this.setState({
       viewCamera: false,
-      code: barcodeData,
     })
     this.props.onBarCodeRead(barcodeData)
   }
   openCamera() {
     this.setState({
       viewCamera: true,
-      preview: null,
     })
   }
   closeModal() {
@@ -47,14 +60,14 @@ export default class CameraContainer extends Component {
     })
   }
   takePicture() {
+    this.setState({ spinnerVisible: true })
     const options = {}
-    //options.location = ...
     this.camera
       .capture({ metadata: options })
-      .then(data => {
+      .then((data) => {
         this.setState({
           viewCamera: false,
-          preview: data,
+          spinnerVisible: false,
         })
         this.props.onCapturePhoto(data)
       })
@@ -64,10 +77,15 @@ export default class CameraContainer extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <Spinner
+          visible={this.state.spinnerVisible}
+          textContent="Capturing..."
+          textStyle={{ color: '#FFF' }}
+        />
         {this.state.viewCamera === true && this.state.mode === 'photo' && (
           <CameraWrapper
             isOpen
-            refToPass={cam => {
+            refToPass={(cam) => {
               this.camera = cam
             }}
             closeModal={this.closeModal}
@@ -77,7 +95,7 @@ export default class CameraContainer extends Component {
         {this.state.viewCamera === true && this.state.mode === 'scanner' && (
           <CameraWrapper
             isOpen
-            refToPass={cam => {
+            refToPass={(cam) => {
               this.camera = cam
             }}
             closeModal={this.closeModal}
@@ -94,11 +112,3 @@ export default class CameraContainer extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  preview: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-})
