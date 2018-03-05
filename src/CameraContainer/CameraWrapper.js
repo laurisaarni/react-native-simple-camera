@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { Dimensions, Modal, StyleSheet, View } from 'react-native'
 import Camera from 'react-native-camera'
 import Button from './Button'
@@ -35,10 +35,12 @@ const styles = StyleSheet.create({
   },
 })
 
-const CameraWrapper = ({ isOpen, onPress, refToPass, closeModal, onBarCodeRead }) => (
+const CameraWrapper = ({
+  isOpen, onPress, refToPass, closeModal, onBarCodeRead,
+}) => (
   <Modal
     visible={isOpen}
-    animationType={'slide'}
+    animationType="slide"
     onRequestClose={() => {}}
   >
     {isOpen === true && (
@@ -52,17 +54,17 @@ const CameraWrapper = ({ isOpen, onPress, refToPass, closeModal, onBarCodeRead }
           {onPress && (
             <View style={styles.butttonBar}>
               <View style={styles.buttonBarItemWrapper}>
-                <Button onPressButton={onPress} icon="shutter" />
+                <Button onPressButton={closeModal} icon="close" />
               </View>
               <View style={styles.buttonBarItemWrapper}>
-                <Button onPressButton={closeModal} icon="close" />
+                <Button onPressButton={onPress} icon="shutter" />
               </View>
             </View>
           )}
           {onBarCodeRead && (
             <View style={styles.butttonBar}>
-                <View style={styles.buttonBarItemWrapper}>
-                  <Button onPressButton={closeModal} icon="close" />
+              <View style={styles.buttonBarItemWrapper}>
+                <Button onPressButton={closeModal} icon="close" />
               </View>
             </View>
           )}
