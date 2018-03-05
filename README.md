@@ -11,7 +11,7 @@ To use the Camera Component in your app you need to do following steps.
 First, install react-native-camera package
 
 ```
-yarn add react-native-camera
+yarn add react-native-camera react-native-loading-spinner-overlay
 ```
 
 Secondly, link the package to your codebase by running
