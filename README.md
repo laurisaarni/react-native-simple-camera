@@ -80,7 +80,7 @@ You can use it as camera or barcode scanner.
 When a photo is captured the `onCapturePhoto` function provided as a property will be called. It will receive `data` object as its parameter. `data` contains information related to the image captured.
 
 
-#### Scanningreact-native-loading-spinner-overlay bar / QR codes
+#### Scanning bar codes and QR codes
 ```
 <CameraContainer
   mode="scanner"
