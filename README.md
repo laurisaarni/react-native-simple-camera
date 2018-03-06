@@ -42,6 +42,7 @@ Add necessary permissions.
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-feature android:name="android.hardware.camera" />
 ```
+
 #### android/build.gradle
 Add maven urls to the end off your build.gradle file as follows.
 ```
