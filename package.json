@@ -1,7 +1,7 @@
 {
   "name": "react-native-simple-camera",
   "description": "A Camera component for React Native. Also reads barcodes. Based on react-native-camera.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Lauri Saarni <lauri@web-essentials.asia> (http://www.web-essentials.co)",
   "homepage": "https://github.com/laurisaarni/react-native-simple-camera",
   "keywords": [
