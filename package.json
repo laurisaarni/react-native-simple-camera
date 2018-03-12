@@ -14,7 +14,7 @@
     "react-native"
   ],
   "dependencies": {
-    "react-native-camera": "^1.0.1",
+    "react-native-camera": "^1.0.2",
     "react-native-loading-spinner-overlay": "^0.5.2"
   },
   "devDependencies": {
